@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引入vue.js</title>
+</head>
+<body>
+<div id = 'app'>
+    <ul>
+        <li v-for = "book in books">
+            {{book.name}}
+        </li>
+    </ul>
+</div>
+<script src="../utils/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            books:[
+                {name:'<vue.js起步>'},
+                {name:'<vue.js语法>'},
+                {name:'<vue.js进阶>'},
+                {name:'<vue.js高级>'},
+            ]
+        }
+    })
+</script>
+</body>
+</html>

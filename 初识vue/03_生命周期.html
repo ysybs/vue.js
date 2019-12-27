@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<div id='app'>
+    {{msg}}
+</div>
+<script src="../utils/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: '',
+        },
+        created:function () {
+            console.log("vue实例创建完成：el还没有挂载=====>created ")
+        },
+        mounted:function () {
+            console.log("vue实例创建完成：el挂载完成=====>created ")
+        },
+
+    })
+</script>
+</body>
+</html>
