@@ -429,7 +429,7 @@
     display: inline-block;
     width: 60px;
     height: 60px;
-    background: url(../../imge/1.jpg) no-repeat 0 0;
+    background: url(../../../imge/1.jpg) no-repeat 0 0;
     background-size: 128px 122px; }
 .apply-promotion .type.type-cash i {
     background-position: -68px 0; }
@@ -474,7 +474,7 @@
     display: inline-block;
     width: 12px;
     height: 12px;
-    background: url(../../imge/1.jpg) no-repeat 0 0;
+    background: url(../../../imge/1.jpg) no-repeat 0 0;
     background-size: 100% auto;
     border-radius: 50%; }
 .tips_pop .tips_pop_box {
@@ -788,4 +788,8 @@
     .addr-list-wrap {
         padding-bottom: 23px; } }
 
-/** 订单详情 **/
+/** 订单详情**/
+.item-check-btn-check {
+    background: #ff5160;
+    border-color: #ff5160;
+}

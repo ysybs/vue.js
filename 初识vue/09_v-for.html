@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令</title>
+</head>
+<body>
+    <div id='app'>
+        <div>
+            <input type="text" v-model="name">
+            <button @click="add">添加</button>
+        </div>
+        <ul>
+            <li v-for="(item,index) in list" :key="item.id">
+                <dev>{{item.id}}</dev>
+                <dev>{{item.name}}</dev>
+                <dev>{{item.age}}</dev>
+                <input type="checkbox">
+            </li>
+        </ul>
+    </div>
+<script src="../utils/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name:'',
+            newId:3,
+            list:[
+                {
+                    id:1,
+                    name:'张三',
+                    age:12
+                },
+                {
+                    id:2,
+                    name:'李四',
+                    age: 123
+                },
+                {
+                    id:3,
+                    name:'王五',
+                    age: 123
+                }
+            ]
+        },
+        methods:{
+            add(){
+                debugger
+                this.list.unshift({
+                    id:++this.newId,
+                    name:this.name,
+                    age:100
+                })
+            }
+        }
+    });
+</script>
+</body>
+</html>
