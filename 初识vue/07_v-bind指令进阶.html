@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<style>
+    .active{
+        background: blueviolet;
+        font-size: 10px;
+    }
+    .error{
+        background: red;
+        font-size: 10px;
+    }
+</style>
+<body>
+<div id='app'>
+    <div :class = "{'active':isActive,'error':iserror}">绑定class属性方式:对象语法</div>
+    <div class="active" v-if ="setStyle">绑定class属性方式:计算属性</div>
+    <div :class="[showerror,showactive]">绑定class属性方式:数组多个属性</div>
+    <div :style="{'color':color,'fontSize':fontSize + 'px'}">绑定内联属性style</div>
+    <div :style="styles">对象包装</div>
+</div>
+<script src="../utils/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isActive: false,
+            iserror:true,
+            showerror:'error',
+            showactive:'active',
+            color:'red',
+            fontSize:14,
+            styles:{
+                'color':'red',
+                'fontSize':15+'px'
+            }
+        },
+        computed:{
+            setStyle:function () {
+                return true
+            }
+        }
+    })
+</script>
+</body>
+</html>

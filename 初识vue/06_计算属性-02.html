@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+    <div id='app'>
+        <p>计算属性可以依赖对个vue实例,并且数据是双向绑定的</p>
+        <input v-model="packg1" type="text" placeholder="1号购物车金额">
+        <input v-model="packg2" type="text" placeholder="1号购物车金额">
+        <div>{{count}}</div>
+        计算属于缓存式:<div>{{getNowDate}}</div>
+    </div>
+<script src="../utils/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            packg1:0,
+            packg2:0,
+        },
+        methods:{
+
+        },
+        computed:{
+            count:function() {
+                let number = parseInt(this.packg1);
+                let number2 = parseInt(this.packg2);
+                return number + number2
+            },
+            getNowDate:function () {
+                return Date.now();
+            }
+        }
+    })
+</script>
+</body>
+</html>

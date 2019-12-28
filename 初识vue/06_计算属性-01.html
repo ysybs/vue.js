@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+    <div id='app'>
+        <div>{{text.split(',').reverse().join(',')}}</div>
+        <div>{{reverseText}}</div>
+        <div v-if='test'>我的计算属性生来的</div>
+    </div>
+<script src="../utils/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            text: '1234,5678'
+        },
+        computed:{
+            reverseText:function () {
+                return this.text.split(',').reverse().join(',')
+            },
+            test:function () {
+                return false
+            }
+        }
+    })
+</script>
+</body>
+</html>
