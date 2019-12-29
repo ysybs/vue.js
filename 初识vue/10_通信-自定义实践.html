@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引入vue.js</title>
+</head>
+<body>
+    <div id='app'>
+        <p>{{total}}</p>
+        <my-parent @one="getTotal"  @two="getTotal"></my-parent>
+        <my-parent v-model="total"></my-parent>
+    </div>
+<script src="../utils/vue.js"></script>
+<script>
+    Vue.component('my-parent',{
+        template:`
+        <div>
+            <button @click="handlencrease">+1</button>
+            <button @click="handleReduce">-1</button>
+            <button @click="hands">hands</button>
+        </div>
+
+        `,
+        data:function () {
+            return {
+                counter:0
+            }
+        },
+        methods:{
+            handlencrease:function () {
+                this.counter++;
+                this.$emit('one',this.counter);
+            },
+            handleReduce:function () {
+                this.counter--;
+                this.$emit('two',this.counter);
+            },
+            hands:function () {
+                this.counter+=10;
+                this.$emit('input',this.counter);
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app',
+        data: {
+            total:0
+        },
+        methods:{
+            getTotal:function (vlue) {
+                this.total = vlue
+            }
+        }
+    })
+</script>
+</body>
+</html>

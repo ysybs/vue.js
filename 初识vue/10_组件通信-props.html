@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引入vue.js</title>
+</head>
+<body>
+    <div id='app'>
+        <my-parent magess = '我是参数'></my-parent>
+    </div>
+<script src="../utils/vue.js"></script>
+    <script>
+        //注册一个组件
+        Vue.component('my-parent',{
+            props:['magess'],
+            template:`
+                <div>{{magess}}</div>
+            `
+        });
+        new Vue({
+            el: '#app',
+            data: {}
+        })
+    </script>
+</body>
+</html>

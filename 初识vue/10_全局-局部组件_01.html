@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引入vue.js</title>
+</head>
+<body>
+    <div id='app'>
+        <my-component></my-component>
+        <my-child></my-child>
+        <table is="my-table" >
+        </table>
+    </div>
+<script src="../utils/vue.js"></script>
+    <script>
+        //创建并注册一个全局组件
+        Vue.component('my-component',{
+            template:`
+            <div>
+                <div>{{msg}}</div>
+                <div>{{create}}</div>
+            </div>
+            `,
+            data:function () {
+                return {
+                    msg:'我是全局组件+msg'
+                }
+            },
+            computed:{
+                create:function () {
+                   return this.msg+ '计算结果';
+                }
+            }
+        });
+        var my_child = {
+            template: `
+            <div>我是局部局组件</div>
+            `
+        }
+        //组件会出现限制，因为特定的表现只能放置特定的表现 比喻<table> 下只能放 <tr> <td> <th>,可以使用 is来挂载组件
+        var my_table = {
+            template: `
+            <tr>
+                <td>我是td</td>
+            </tr>
+            `
+        }
+        new Vue({
+            el: '#app',
+            data: {},
+            //注册一个局部组件
+            components:{
+                'my-child':my_child,
+                'my-table':my_table
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引入vue.js</title>
+</head>
+<body>
+    <div id='app'>
+        <p>{{msg}}</p>
+        <my-component></my-component>
+    </div>
+<script src="../utils/vue.js"></script>
+<script>
+    var bus = new Vue();
+    Vue.component('my-component',{
+        template:`<button @click="headler">点击传达我的信息</button>`,
+        methods:{
+            headler:function () {
+                bus.$emit('cheke-on','my-component的信息');
+            }
+        }
+    });
+    new Vue({
+        el: '#app',
+        data: {
+            msg:''
+        },
+        mounted:function () {
+            var  _this = this;
+            //实例化 el挂在完成后
+            bus.$on('cheke-on',function (msgResponse) {
+                _this.msg = msgResponse
+            });
+        }
+    })
+</script>
+</body>
+</html>
